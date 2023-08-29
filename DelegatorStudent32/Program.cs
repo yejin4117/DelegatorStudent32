@@ -8,15 +8,27 @@ namespace DelegatorStudent32
 {
     internal static class Program
     {
-        /// <summary>
-        /// 해당 애플리케이션의 주 진입점입니다.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Students students = new Students();
+            students.Add(new Student("함기훈", 4.5));
+            students.Add(new Student("박성래", 4.4));
+            students.Add(new Student("마이콜", 1.0));
+
+            students.Print();
+            students.Print((s) =>
+            {
+                Console.WriteLine("*************");
+                Console.WriteLine(" 이름:" + s.Name);
+                Console.WriteLine(" 학점:" + s.Score);
+            });
+            students.Print((s) =>
+            {
+                Console.WriteLine("<student>");
+                Console.WriteLine("  <name>" + s.Name + "</name>");
+                Console.WriteLine("  <score>" + s.Score + "</score>");
+                Console.WriteLine("</student>");
+            });
         }
     }
 }
