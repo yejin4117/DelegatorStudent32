@@ -22,3 +22,4 @@ namespace DelegatorStudent32
             return Name + " " + Score;
         }
     }
+}
